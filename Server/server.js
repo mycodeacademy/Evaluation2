@@ -1,4 +1,5 @@
 const Hapi=require('hapi');
+const getBooksData = require('./Routes/getBooksData.route');
 
 // Create a server with a host and port
 const server=Hapi.server({
@@ -7,14 +8,7 @@ const server=Hapi.server({
 });
 
 // Add the route
-server.route({
-    method:'GET',
-    path:'/hello',
-    handler:function(request,h) {
-
-        return'hello world';
-    }
-});
+server.route(getBooksData);
 
 // Start the server
 const start =  async function() {
